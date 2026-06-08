@@ -1,21 +1,725 @@
-.main {
+.page {
   display: flex;
   min-height: 100vh;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 88px;
+  padding: 1.5rem 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.1rem;
+}
+
+.navItemActive {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerText .eyebrow {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.headerText .title {
+  margin: 0.15rem 0 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.headerStats {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pillCoin {
+  background: var(--color-accent-yellow-soft);
+  color: var(--color-accent-yellow);
+}
+
+.pillStreak {
+  background: var(--color-accent-pink-soft);
+  color: var(--color-accent-pink);
+}
+
+.pillOnDark {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Layout grid */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+/* Summary row: today progress + level */
+.summaryRow {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 1.5rem;
+}
+
+.progressCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.progressRing {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 10px solid var(--color-primary-soft);
+  border-top-color: var(--color-primary);
+  border-right-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.progressRing .progressValue {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.progressRing .progressLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.statList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.statIconBlue {
+  background: var(--color-accent-green-soft);
+  color: var(--color-accent-green);
+}
+
+.statIconPink {
+  background: var(--color-accent-pink-soft);
+  color: var(--color-accent-pink);
+}
+
+.statTitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.statSubtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Level / XP card */
+.levelCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.levelTop {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.levelBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.levelBadge .levelLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.levelBadge .levelValue {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.levelCopy p {
+  margin: 0;
+}
+
+.levelCopy .levelHint {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.levelCopy .levelHeadline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.levelFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.levelFooterStats {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Chores by room */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.sectionHeader .sectionSubtitle {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.iconButtonGreen {
+  background: var(--color-accent-green-soft);
+  color: var(--color-accent-green);
+}
+
+.room {
+  margin-bottom: 0.5rem;
+}
+
+.roomHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 0;
+}
+
+.roomIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.roomIconPurple {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.roomIconGreen {
+  background: var(--color-accent-green-soft);
+  color: var(--color-accent-green);
+}
+
+.roomInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.roomInfo h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.roomProgress {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.roomProgressTrack {
+  width: 140px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.roomProgressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.roomProgressFillGreen {
+  background: var(--color-accent-green);
+}
+
+.roomProgressLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.choreList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.chore {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.choreDone {
+  background: var(--color-bg);
+  border-color: transparent;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: transparent;
+}
+
+.checkboxChecked {
+  border-color: transparent;
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.checkboxCheckedGreen {
+  background: var(--color-accent-green);
+}
+
+.choreInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.choreInfo .choreName {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.choreNameDone {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.choreMeta {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.choreMeta .room {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.choreMeta .due {
+  font-weight: 600;
+}
+
+.dueOverdue {
+  color: var(--color-accent-pink);
+}
+
+.dueSoon {
+  color: var(--color-accent-blue);
+}
+
+.choreActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tagXp {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.tagCoin {
+  background: var(--color-accent-yellow-soft);
+  color: var(--color-accent-yellow);
+}
+
+.tagFaded {
+  opacity: 0.5;
+}
+
+.editButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+/* Weekly quests */
+.quest {
+  display: flex;
+  gap: 0.85rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  margin-bottom: 0.75rem;
+}
+
+.quest:last-child {
+  margin-bottom: 0;
+}
+
+.questIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.questBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.questHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.questHead h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.questHead p {
+  margin: 0.1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.questReward {
+  flex-shrink: 0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--color-accent-yellow-soft);
+  color: var(--color-accent-yellow);
+  white-space: nowrap;
+}
+
+.questProgress {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.questProgressTrack {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.questProgressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.questProgressLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Badges */
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   text-align: center;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
+.badgeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  font-size: 1.3rem;
 }
 
-.subtitle {
-  color: var(--foreground);
-  opacity: 0.7;
+.badgeEarned {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.badgeLocked {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.badgeLabel {
   margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1080px) {
+  .grid,
+  .summaryRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .navList {
+    flex-direction: row;
+  }
 }
